@@ -1,11 +1,17 @@
 import AccountProfile from "@/components/forms/AccountProfile";
+import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 type Props = {};
 
 const OnBoardPage = async (props: Props) => {
   const user = await currentUser();
-  const userInfo = {};
+  if (!user) return null; // to avoid typescript warnings
+
+  const userInfo = await fetchUser(user.id);
+  if (userInfo?.onboarded) redirect("/");
+
   const userData = {
     id: user?.id,
     objectId: userInfo?._id,

@@ -103,7 +103,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col justify-start gap-10"
+        className="mt-10 flex flex-col justify-start gap-10"
       >
         <FormField
           control={form.control}
@@ -149,7 +149,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
               <FormLabel className="text-white">Name</FormLabel>
-              <FormControl>
+              <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Input
                   type="text"
                   placeholder="Enter your name"
@@ -168,7 +168,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
               <FormLabel className="text-white">Username</FormLabel>
-              <FormControl>
+              <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Input
                   type="text"
                   placeholder="Enter your username"
@@ -187,7 +187,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
               <FormLabel className="text-white">Bio</FormLabel>
-              <FormControl>
+              <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Textarea
                   rows={3}
                   placeholder="Enter your bio"

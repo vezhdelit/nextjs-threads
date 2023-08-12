@@ -16,6 +16,7 @@ import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { usePathname, useRouter } from "next/navigation";
 import { ThreadValidation } from "@/lib/validations/thread";
+import { createThread } from "@/lib/actions/thread.actions";
 
 const PostThread = ({ userId }: { userId: string }) => {
   const router = useRouter();
@@ -29,23 +30,34 @@ const PostThread = ({ userId }: { userId: string }) => {
     },
   });
 
-  const onSubmit = async () => {};
+  const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+    await createThread({
+      text: values.thread,
+      author: userId,
+      communityId: null,
+      path: pathname,
+    });
+
+    router.push("/");
+  };
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col justify-start gap-10"
+        className="mt-10 flex flex-col justify-start gap-10"
       >
         <FormField
           control={form.control}
           name="thread"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-white">Name</FormLabel>
-              <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 border border-neuntal-800 bg-neutral-900">
+              <FormLabel className="text-white">Thread</FormLabel>
+              <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Textarea
                   rows={10}
-                  placeholder="Enter your thread"
+                  placeholder="Enter your thoughts.."
+                  className="border border-neutral-900 bg-neutral-950 text-white "
                   {...field}
                 />
               </FormControl>
@@ -55,7 +67,7 @@ const PostThread = ({ userId }: { userId: string }) => {
         />
 
         <Button type="submit" className=" bg-violet-600">
-          Submit
+          Post Thread
         </Button>
       </form>
     </Form>

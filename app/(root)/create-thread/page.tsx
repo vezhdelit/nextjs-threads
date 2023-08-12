@@ -15,7 +15,7 @@ const CreateThreadPage = async (props: Props) => {
 
   return (
     <>
-      <h1 className="text-2xl font-semibold text-white">Create thread</h1>
+      <h1 className="text-2xl font-semibold text-white">Create Thread</h1>
       <PostThread userId={userInfo._id} />
     </>
   );
