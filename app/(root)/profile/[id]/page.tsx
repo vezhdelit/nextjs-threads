@@ -16,7 +16,6 @@ const ProfilePage = async ({ params }: Props) => {
   if (!user) return null;
 
   const userInfo = await fetchUser(params.id);
-  console.log(userInfo);
   if (!userInfo?.onboarded) {
     redirect("/onboard");
   }
