@@ -20,13 +20,10 @@ export const createThread = async ({
 }: ThreadParams) => {
   try {
     connectToDB();
-    console.log("COMMUNITY ID: ", communityId);
     const communityIdObject = await Community.findOne(
       { id: communityId },
       { _id: 1 }
     );
-
-    console.log("COMMUNITY OBJECT: ", communityIdObject);
 
     const createdThread = await Thread.create({
       text,
