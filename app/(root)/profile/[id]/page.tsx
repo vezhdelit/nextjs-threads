@@ -56,6 +56,7 @@ const ProfilePage = async ({ params }: Props) => {
               </TabsTrigger>
             ))}
           </TabsList>
+
           {profileTabs.map((tab) => (
             <TabsContent
               key={`content-${tab.label}`}
