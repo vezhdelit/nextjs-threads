@@ -11,6 +11,7 @@ interface Props {
   content: string;
   author: {
     name: string;
+    username: string;
     image: string;
     id: string;
   };
@@ -42,7 +43,7 @@ const ThreadCard = ({
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
-        isComment ? " mt-2 sm:px-7" : " bg-neutral-900 p-7"
+        isComment ? " mt-2 sm:px-7" : " bg-midnight p-7"
       }`}
     >
       <div className="flex items-start justify-between">
@@ -56,12 +57,13 @@ const ThreadCard = ({
                 className="cursor-pointer rounded-full"
               ></Image>
             </Link>
-            <div className="relative mt-2 w-0.5 grow rounded-full bg-neutral-800"></div>
+            <div className="relative mt-2 w-0.5 grow rounded-full bg-gray"></div>
           </div>
 
           <div className="flex w-full flex-col">
-            <Link href={`/profile/${author.id}`} className="w-fit">
+            <Link href={`/profile/${author.id}`} className="w-fit flex gap-2">
               <h4 className="cursor-pointer text-white">{author.name}</h4>
+              <p className="text-lightgray">@{author.username}</p>
             </Link>
             <p className="mt-2 text-sm text-white"> {content}</p>
 
@@ -116,13 +118,17 @@ const ThreadCard = ({
 
       {!isComment && (
         <div className=" mt-5 flex">
-          <p className="text-white text-sm">{formatDateString(createdAt)}</p>
+          <p className="text-lightgray text-sm">
+            {formatDateString(createdAt)}
+          </p>
           {community && (
             <Link
               href={`/communities/${community.id}`}
               className=" ml-1 flex items-center"
             >
-              <p className="text-white text-sm">- {community.name} Community</p>
+              <p className="text-lightgray text-sm">
+                - {community.name} Community
+              </p>
               <Image
                 src={community.image}
                 alt={community.name}

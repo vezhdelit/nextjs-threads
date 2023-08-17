@@ -103,14 +103,14 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mt-10 flex flex-col justify-start gap-10"
+        className="mt-4 mb-4 flex flex-col justify-start gap-8"
       >
         <FormField
           control={form.control}
           name="profile_photo"
           render={({ field }) => (
             <FormItem className="flex items-center gap-4">
-              <FormLabel className="flex h-24 w-24 items-center justify-center rounded-full bg-neutral-900 cursor-pointer">
+              <FormLabel className="flex h-24 w-24 items-center justify-center rounded-full bg-midnight cursor-pointer">
                 {field.value ? (
                   <Image
                     src={field.value}
@@ -147,13 +147,13 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-3 w-full">
+            <FormItem className="flex flex-col gap-2 w-full">
               <FormLabel className="text-white">Name</FormLabel>
               <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Input
                   type="text"
                   placeholder="Enter your name"
-                  className="border border-neutral-900 bg-neutral-950 text-white"
+                  className="border-none bg-night text-white"
                   {...field}
                 />
               </FormControl>
@@ -166,13 +166,13 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-3 w-full">
+            <FormItem className="flex flex-col gap-2 w-full">
               <FormLabel className="text-white">Username</FormLabel>
               <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Input
                   type="text"
                   placeholder="Enter your username"
-                  className="border border-neutral-900 bg-neutral-950 text-white"
+                  className="border-none bg-night text-white"
                   {...field}
                 />
               </FormControl>
@@ -185,13 +185,13 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name="bio"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-3 w-full">
+            <FormItem className="flex flex-col gap-2 w-full">
               <FormLabel className="text-white">Bio</FormLabel>
               <FormControl className=" focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0">
                 <Textarea
                   rows={3}
                   placeholder="Enter your bio"
-                  className="border border-neutral-900 bg-neutral-950 text-white"
+                  className="border-none bg-night text-white"
                   {...field}
                 />
               </FormControl>

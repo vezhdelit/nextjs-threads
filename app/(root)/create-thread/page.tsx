@@ -14,10 +14,10 @@ const CreateThreadPage = async (props: Props) => {
   }
 
   return (
-    <>
+    <section className="mt-9 bg-midnight rounded-lg p-10">
       <h1 className="text-2xl font-semibold text-white">Create Thread</h1>
       <PostThread userId={userInfo._id} />
-    </>
+    </section>
   );
 };
 

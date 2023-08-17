@@ -14,14 +14,14 @@ interface Props {
 const UserCard = ({ id, name, username, imgUrl, userType }: Props) => {
   const router = useRouter();
   return (
-    <article className="flex flex-col justify-between gap-4 max-sm:rounded-xl max-sm:bg-neutral-700 max-sm:p-4 sm:flex-row sm:items-center">
+    <article className="flex flex-col justify-between gap-4 max-sm:rounded-xl max-sm:bg-midnight max-sm:p-4 sm:flex-row sm:items-center">
       <div className="flex flex-1 items-start justify-start gap-3 sm:items-center">
         <Image
           src={imgUrl}
           alt="user logo"
           width={58}
           height={58}
-          className="rounded-full border-2 border-neutral-900"
+          className="rounded-full border-2 border-midnight"
         />
 
         <div className=" flex-1 text-ellipsis">

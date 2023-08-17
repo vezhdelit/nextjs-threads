@@ -8,9 +8,9 @@ type Props = {};
 
 const TopBar = (props: Props) => {
   return (
-    <nav className="fixed top-0 z-30 flex w-full items-center justify-between  bg-neutral-900 border-b border-b-neutral-800 px-6 py-3">
+    <nav className="fixed top-0 z-30 flex w-full items-center justify-between  bg-midnight px-6 py-3">
       <Link href="/" className="flex items-center gap-4">
-        <Image src="/assets/logo.svg" alt="logo" width={28} height={28} />
+        <Image src="/assets/logo.svg" alt="logo" width={32} height={32} />
         <p className=" text-2xl font-bold text-white">Threads</p>
       </Link>
 

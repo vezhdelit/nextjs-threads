@@ -63,7 +63,7 @@ export const fetchUserThreads = async (userId: string) => {
         {
           path: "community",
           model: Community,
-          select: "name id image _id",
+          select: "name username id image _id",
         },
         {
           path: "children",
@@ -71,7 +71,7 @@ export const fetchUserThreads = async (userId: string) => {
           populate: {
             path: "author",
             model: User,
-            select: "name image id",
+            select: "name username image id",
           },
         },
       ],

@@ -59,7 +59,7 @@ const PostThread = ({ userId }: { userId: string }) => {
                 <Textarea
                   rows={10}
                   placeholder="Enter your thoughts.."
-                  className="border border-neutral-900 bg-neutral-950 text-white "
+                  className="border-none bg-night text-white "
                   {...field}
                 />
               </FormControl>

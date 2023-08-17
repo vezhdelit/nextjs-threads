@@ -10,7 +10,6 @@ const OnBoardPage = async (props: Props) => {
   if (!user) return null; // to avoid typescript warnings
 
   const userInfo = await fetchUser(user.id);
-  if (userInfo?.onboarded) redirect("/");
 
   const userData = {
     id: user?.id,
@@ -22,12 +21,10 @@ const OnBoardPage = async (props: Props) => {
   };
   return (
     <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20">
-      <h1 className=" text-2xl font-bold text-white">Onboarding</h1>
-      <p className="mt-3 text-white">
-        Complete your profile now to use Threads
-      </p>
-
-      <section className="mt-9 bg-neutral-900/80 p-10">
+      <section className="mt-9 bg-midnight rounded-lg p-10">
+        <h1 className=" text-center text-2xl font-bold text-white">
+          Complete your profile
+        </h1>
         <AccountProfile user={userData} btnTitle="Continue" />
       </section>
     </main>

@@ -70,7 +70,7 @@ export const fetchThreads = async ({ pageNumber = 1, pageSize = 20 }) => {
       populate: {
         path: "author",
         model: User,
-        select: "_id name parentId image",
+        select: "_id name username parentId image",
       },
     });
 

@@ -13,7 +13,7 @@ const LeftSideBar = (props: Props) => {
   const pathname = usePathname();
   const { userId } = useAuth();
   return (
-    <section className="custom-scrollbar sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-neutral-800 bg-neutral-900 pb-5 pt-28 max-md:hidden">
+    <section className="custom-scrollbar sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto bg-midnight pb-5 pt-28 max-md:hidden">
       <div className="flex w-full flex-1 flex-col gap-6 px-6">
         {sidebarLinks.map((link) => {
           if (link.route === "/profile") {
