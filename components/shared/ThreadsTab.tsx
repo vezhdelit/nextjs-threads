@@ -23,6 +23,7 @@ const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
     <section className="mt-9 flex flex-col gap-7">
       {result.threads.map((thread: any) => (
         <>
+          {console.log(thread)}
           <ThreadCard
             key={thread._id}
             id={thread._id}

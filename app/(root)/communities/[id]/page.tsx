@@ -32,12 +32,12 @@ const ProfilePage = async ({ params }: Props) => {
 
       <div className="mt-9">
         <Tabs defaultValue="threads" className="w-full">
-          <TabsList className="flex flex-1 items-center bg-neutral-800 text-white data-[state=active]:bg-[#0e0e12] data-[state=active]:text-white">
+          <TabsList className="flex flex-1 items-center bg-midnight text-white data-[state=active]:bg-night data-[state=active]:text-white">
             {communityTabs.map((tab) => (
               <TabsTrigger
                 key={tab.label}
                 value={tab.value}
-                className="flex  flex-1 items-center gap-3 bg-neutral-800 text-white data-[state=active]:bg-neutral-900 data-[state=active]:text-white"
+                className="flex  flex-1 items-center gap-3 bg-midnight text-white data-[state=active]:bg-night data-[state=active]:text-white"
               >
                 <Image
                   src={tab.icon}
@@ -55,6 +55,7 @@ const ProfilePage = async ({ params }: Props) => {
               </TabsTrigger>
             ))}
           </TabsList>
+
           <TabsContent value="threads" className=" w-full text-white">
             <ThreadsTab
               currentUserId={user.id}

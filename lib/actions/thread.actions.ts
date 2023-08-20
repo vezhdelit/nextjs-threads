@@ -94,12 +94,12 @@ export const fetchThreadById = async ({ id }: { id: string }) => {
       .populate({
         path: "author",
         model: User,
-        select: "_id id name image",
+        select: "_id id name username image",
       })
       .populate({
         path: "community",
         model: Community,
-        select: "_id id name image",
+        select: "_id id name username image",
       })
       .populate({
         path: "children",
@@ -107,7 +107,7 @@ export const fetchThreadById = async ({ id }: { id: string }) => {
           {
             path: "author",
             model: User,
-            select: "_id id name parentId image",
+            select: "_id id name username parentId image",
           },
           {
             path: "children",
@@ -115,7 +115,7 @@ export const fetchThreadById = async ({ id }: { id: string }) => {
             populate: {
               path: "author",
               model: User,
-              select: "_id id name parentId image",
+              select: "_id id name username parentId image",
             },
           },
         ],

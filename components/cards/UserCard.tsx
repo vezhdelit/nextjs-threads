@@ -13,6 +13,8 @@ interface Props {
 
 const UserCard = ({ id, name, username, imgUrl, userType }: Props) => {
   const router = useRouter();
+  const isCommunity = userType === "Community";
+
   return (
     <article className="flex flex-col justify-between gap-4 max-sm:rounded-xl max-sm:bg-midnight max-sm:p-4 sm:flex-row sm:items-center">
       <div className="flex flex-1 items-start justify-start gap-3 sm:items-center">
@@ -32,7 +34,13 @@ const UserCard = ({ id, name, username, imgUrl, userType }: Props) => {
 
       <Button
         className="h-auto min-w-[74px] rounded-lg bg-violet-600 text-[12px] text-white"
-        onClick={() => router.push(`/profile/${id}`)}
+        onClick={() => {
+          if (isCommunity) {
+            router.push(`/communities/${id}`);
+          } else {
+            router.push(`/profile/${id}`);
+          }
+        }}
       >
         View
       </Button>
