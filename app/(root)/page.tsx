@@ -8,23 +8,27 @@ import { redirect } from "next/navigation";
 
 const Home = async () => {
   const user = await currentUser();
-  if (!user) return null;
+  if (!user) {
+    redirect("/onboard");
+  }
 
   const userInfo = await fetchUser(user.id);
-  if (!userInfo?.onboarded) redirect("/onboard");
+  if (!userInfo?.onboarded) {
+    redirect("/onboard");
+  }
 
-  const { threads } = await fetchThreads({ pageNumber: 1, pageSize: 5 });
+  const result = await fetchThreads({ pageNumber: 1, pageSize: 5 });
 
   return (
     <>
       <h1 className="text-2xl font-semibold text-white">Home</h1>
 
       <section className="mt-9 flex flex-col gap-10">
-        {threads.length === 0 ? (
+        {result.threads.length === 0 ? (
           <p className="no-result"></p>
         ) : (
           <>
-            {threads.map((thread) => (
+            {result.threads.map((thread) => (
               <ThreadCard
                 key={thread._id}
                 id={thread._id}
